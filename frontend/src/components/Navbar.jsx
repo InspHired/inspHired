@@ -1,47 +1,69 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // Grouped menu structure to save horizontal real estate
   const navItems = [
-    { text: 'Home', href: '/' },
-    { 
-      text: 'Find Work', 
+    { text: 'Home', href: '/', internal: true },
+    {
+      text: 'Find Work',
       dropdown: [
-        { text: 'Available Jobs', href: 'https://app.insphired.jobs/jobs?standalone=true' },
-        { text: 'Career Lab', href: '/careerLab' }
+        { text: 'Available Jobs', href: 'https://app.insphired.jobs/jobs?standalone=true', internal: false },
+        { text: 'Career Lab', href: '/careerLab', internal: true }
       ]
     },
-    { 
-      text: 'For Employers', 
+    { text: 'For Employers', href: '/employers', internal: true },
+    {
+      text: 'Our Services',
       dropdown: [
-        { text: 'Our Services', href: '/services' },
-        { text: 'Client Center', href: '#' }
+        { text: 'All Services', href: '/services', internal: true },
+        { text: 'RPO', href: '/services#rpo', internal: true },
+        { text: 'Executive Recruitment', href: '/services#executive', internal: true },
+        { text: 'Specialist Recruitment', href: '/services#specialist', internal: true },
+        { text: 'Targeted Headhunting', href: '/services#headhunting', internal: true },
+        { text: 'Bulk & Contract Staffing', href: '/services#bulk', internal: true },
+        { text: 'Temp Recruitment', href: '/services#temp', internal: true }
       ]
     },
-    { text: 'About Us', href: '#' },
-    { text: 'Contact Us', href: '#' }
+    { text: 'Client Center', href: '/client-center', internal: true },
+    { text: 'About Us', href: '/about', internal: true },
+    { text: 'Contact Us', href: '/contact', internal: true }
   ];
+
+  const renderLink = (item, styleObj, children = item.text) => {
+    if (item.internal) {
+      return (
+        <Link to={item.href} style={styleObj}>
+          {children}
+        </Link>
+      );
+    }
+    return (
+      <a href={item.href} style={styleObj} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  };
 
   return (
     <nav style={styles.navbar}>
       <div style={styles.navContainer}>
-        {/* Brand Logo Area */}
-        <a href="#" style={styles.logoArea}>
-          <img 
-            src="/assets/d3058fff-66c9-4472-9b21-56f5649eaa18.png" 
-            alt="InspHired Recruitment Solutions" 
-            style={styles.logoImage} 
+        {/* Brand Logo */}
+        <Link to="/" style={styles.logoArea}>
+          <img
+            src="/assets/d3058fff-66c9-4472-9b21-56f5649eaa18.png"
+            alt="InspHired Recruitment Solutions"
+            style={styles.logoImage}
           />
-        </a>
+        </Link>
 
-        {/* Dynamic Navigation Track */}
+        {/* Nav Links */}
         <ul style={styles.navLinks}>
           {navItems.map((item, index) => (
-            <li 
-              key={index} 
+            <li
+              key={index}
               style={{ position: 'relative' }}
               onMouseEnter={() => {
                 setHoveredIndex(index);
@@ -53,56 +75,47 @@ const Navbar = () => {
               }}
             >
               {item.dropdown ? (
-                // Dropdown Parent Header Item
-                <span style={{
-                  ...styles.navLink,
-                  color: hoveredIndex === index ? '#00818F' : '#1E2223',
-                  cursor: 'pointer'
-                }}>
-                  {item.text} <i className="fas fa-chevron-down" style={styles.chevron}></i>
-                </span>
-              ) : (
-                // Standard Single Action Anchor Target
-                <a 
-                  href={item.href} 
+                <span
                   style={{
                     ...styles.navLink,
-                    color: hoveredIndex === index ? '#00818F' : '#1E2223'
+                    color: hoveredIndex === index ? '#00818F' : '#1E2223',
+                    cursor: 'pointer',
+                    userSelect: 'none'
                   }}
                 >
                   {item.text}
-                </a>
+                  <i className="fas fa-chevron-down" style={styles.chevron}></i>
+                </span>
+              ) : (
+                renderLink(item, {
+                  ...styles.navLink,
+                  color: hoveredIndex === index ? '#00818F' : '#1E2223'
+                })
               )}
 
-              {/* Renders the child nodes floating underneath */}
+              {/* Dropdown panel */}
               {item.dropdown && activeDropdown === index && (
                 <div style={styles.dropdownMenu}>
                   {item.dropdown.map((subLink, subIndex) => (
-                    <a 
-                      key={subIndex} 
-                      href={subLink.href} 
-                      style={styles.dropdownItem}
-                      className="dropdown-hover-target"
-                    >
-                      {subLink.text}
-                    </a>
+                    <React.Fragment key={subIndex}>
+                      {renderLink(subLink, styles.dropdownItem)}
+                    </React.Fragment>
                   ))}
                 </div>
               )}
             </li>
           ))}
-          
-          {/* Main Action Endpoint Button */}
+
+          {/* CTA Button */}
           <li>
-            <a href="#" style={styles.ctaNav} className="btn-hover-transition">
-              <i className="fas fa-user-plus" aria-hidden="true" style={{ marginRight: '8px' }}></i> 
+            <Link to="/get-started" style={styles.ctaNav}>
+              <i className="fas fa-user-plus" aria-hidden="true" style={{ marginRight: '8px' }}></i>
               Get started
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
 
-      {/* Global overrides injecting native pseudo selectors for your sub-link item transitions */}
       <style>{`
         .dropdown-hover-target {
           transition: all 0.2s ease;
@@ -149,17 +162,17 @@ const styles = {
   },
   navLinks: {
     display: 'flex',
-    gap: '24px', // Reduced from 32px to stay compact
+    gap: '24px',
     alignItems: 'center',
     listStyle: 'none',
     margin: 0,
-    padding: 0
+    padding: 0,
   },
   navLink: {
     textDecoration: 'none',
-    fontWeight: 600, // Kept at 600 for prominent brand look
+    fontWeight: 600,
     transition: 'color 0.25s ease',
-    fontSize: '0.92rem', // Reduced slightly from 0.95rem to prevent compression lines
+    fontSize: '0.92rem',
     display: 'inline-flex',
     alignItems: 'center',
     padding: '8px 0',
@@ -167,7 +180,7 @@ const styles = {
   chevron: {
     fontSize: '0.75rem',
     marginLeft: '6px',
-    opacity: 0.7
+    opacity: 0.7,
   },
   dropdownMenu: {
     position: 'absolute',
@@ -175,15 +188,15 @@ const styles = {
     left: '50%',
     transform: 'translateX(-50%)',
     backgroundColor: '#FFFFFF',
-    minWidth: '180px',
-    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 12px -3px rgba(0, 0, 0, 0.05)',
+    minWidth: '210px',
+    boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 12px -3px rgba(0,0,0,0.05)',
     borderRadius: '12px',
     padding: '8px 0',
     marginTop: '4px',
     border: '1px solid rgba(0,0,0,0.05)',
     display: 'flex',
     flexDirection: 'column',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   dropdownItem: {
     color: '#334155',
@@ -191,7 +204,9 @@ const styles = {
     textDecoration: 'none',
     fontSize: '0.88rem',
     fontWeight: 500,
-    textAlign: 'left'
+    textAlign: 'left',
+    transition: 'all 0.2s ease',
+    display: 'block',
   },
   ctaNav: {
     backgroundColor: '#00818F',
@@ -202,8 +217,10 @@ const styles = {
     textDecoration: 'none',
     fontSize: '0.9rem',
     transition: 'all 0.2s ease',
-    whiteSpace: 'nowrap'
-  }
+    whiteSpace: 'nowrap',
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
 };
 
 export default Navbar;
