@@ -2,44 +2,79 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-// 1. ADD TEAM DATA HERE: Update these image paths with your actual asset files
+// Team Array Configuration
 const leadershipTeam = [
   {
     name: 'Adaobi Okonkwo',
     role: 'CEO & Founder',
-    img: '/assets/InspHiredTeam/Basetsana.png' // Clean reference to your company logo asset or profile picture
+    img: '/assets/InspHiredTeam/Basetsana.png'
   },
-  {
-    name: 'Michael Njoroge',
+ {
+    name: 'Deborah Mubenga',
     role: 'Head of Operations',
-    img: '/assets/InspHiredTeam/Norma.png' // Replace with your file path
+    img: '/assets/InspHiredTeam/Deborah.png'
+  },
+      {
+    name: 'Basetsana Pule',
+    role: 'Associate',
+    img: '/assets/InspHiredTeam/Basetsana.png'
   },
   {
-    name: 'Thandiwe Mbeki',
-    role: 'Talent Director',
-    img: '/assets/InspHiredTeam/Phamela.png' // Replace with your file path
+    name: 'Norma Banda',
+    role: 'Managing Partner',
+    img: '/assets/InspHiredTeam/Norma.png'
   },
   {
-    name: 'Kwame Asare',
-    role: 'CTO, VerifyMe',
-    img: '/assets/InspHiredTeam/Rochelle.png' // Replace with your file path
+    name: 'Phamela Mthitshane ',
+    role: 'Candidate Manager',
+    img: '/assets/InspHiredTeam/Phamela.png'
   },
   {
-    name: 'Fatima El-Sayed',
-    role: 'Client Partner',
-    img: '/assets/InspHiredTeam/Sharity.png' // Replace with your file path
+    name: 'Rochelle Titus',
+    role: 'Managing Partner',
+    img: '/assets/InspHiredTeam/Rochelle.png'
   },
   {
-    name: 'Executive Placeholder',
-    role: 'Strategic Growth',
-    img: '/assets/InspHiredTeam/Basetsana.png' // Replace with your file path
+    name: 'Sharrity Mhlanga',
+    role: 'Recruitment Researcher',
+    img: '/assets/InspHiredTeam/Sharity.png'
+  },
+  {
+    name: 'Unathi Mbasa',
+    role: 'Operations Team Lead',
+    img: '/assets/InspHiredTeam/Unathi.png'
+  },
+  {
+    name: 'Joyce Muya',
+    role: 'Managing Partner',
+    img: '/assets/InspHiredTeam/Joyce.png'
+  },
+  {
+    name: 'Tumelo Mpeta',
+    role: 'Talent Marketing & ATS Corodinator',
+    img: '/assets/InspHiredTeam/Tumelo.png'
+  },
+      {
+    name: 'Ene-ene NetShiswinzhe',
+    role: 'HR Generalist',
+    img: '/assets/InspHiredTeam/Ene.png'
+  },
+      {
+    name: 'Gègè Sena Saleh',
+    role: 'Head of Finance',
+    img: '/assets/InspHiredTeam/Gege.png'
+  }
+  ,    {
+    name: 'Stefanie Peters',
+    role: 'Managing Partner',
+    img: '/assets/InspHiredTeam/Stef.png'
   }
 ];
 
 const HomePage = () => {
   return (
     <div style={globalStyles.pageWrapper}>
-      {/* Injecting CSS profiles directly for keyframes and responsive modifiers */}
+      {/* Global CSS Keyframe Animations & Class Modifiers */}
       <style>{`
         @keyframes fadeLeft {
           from { opacity: 0; transform: translateX(-30px); }
@@ -53,7 +88,7 @@ const HomePage = () => {
         .team-track-container { display: flex; gap: 24px; width: max-content; animation: scrollTeams 40s linear infinite; }
         .team-track-container:hover { animation-play-state: paused; }
         
-        /* Shared Interactive Hover Classes across the shared blueprint shadow configuration */
+        /* Interactive Cyan Card Base Class */
         .interactive-cyan-card {
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
         }
@@ -70,7 +105,7 @@ const HomePage = () => {
 
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Header Section */}
       <header style={styles.hero}>
         <video 
           style={styles.heroVideo} 
@@ -96,14 +131,14 @@ const HomePage = () => {
                 <i className="fas fa-paper-plane" style={{ marginRight: '8px' }}></i> Find talent
               </a>
               <a href="#" style={styles.btnOutlineLight} className="btn-hover-transition">
-                <i className="fas fa-chart-line" style={{ marginRight: '8px' }}></i> Post a job
+                <i className="fas fa-chart-line" style={{ marginRight: '8px' }}></i> Available Jobs
               </a>
             </div>
           </div>
         </div>
       </header>
 
-      {/* 1. Our Purpose & Direction Section */}
+      {/* 1. Purpose & Direction Section */}
       <section style={{ ...styles.section, backgroundColor: '#F8FAFC' }}>
         <div style={styles.container}>
           <div style={styles.sectionHeader}>
@@ -126,7 +161,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* 2. Why InspHired Section */}
+      {/* 2. Value Propositions (Why InspHired) Section */}
       <section style={{ ...styles.section, backgroundColor: '#FFFFFF' }}>
         <div style={styles.container}>
           <div style={styles.sectionHeader}>
@@ -141,17 +176,17 @@ const HomePage = () => {
               <h4 style={styles.smallCardHeading}>Culture-first matching</h4>
               <p style={styles.diffText}>Beyond skills — every candidate is assessed for cultural alignment with your organisation's values and team dynamics.</p>
             </div>
-            <div style={styles.diffCard} className="interactive-cyan-card">
+            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
               <div style={styles.diffIcon}><i className="fas fa-network-wired"></i></div>
               <h4 style={styles.smallCardHeading}>Deep African networks</h4>
               <p style={styles.diffText}>A decade of relationships across industries and geographies means faster, higher-quality access to the right talent.</p>
             </div>
-            <div style={styles.diffCard} className="interactive-cyan-card">
+            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
               <div style={styles.diffIcon}><i className="fas fa-user-check"></i></div>
               <h4 style={styles.smallCardHeading}>End-to-end verification</h4>
               <p style={styles.diffText}>From criminal checks to credentials — every candidate is fully verified before being presented to you.</p>
             </div>
-            <div style={styles.diffCard} className="interactive-cyan-card">
+            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
               <div style={styles.diffIcon}><i className="fas fa-handshake-angle"></i></div>
               <h4 style={styles.smallCardHeading}>Post-placement support</h4>
               <p style={styles.diffText}>We stay involved after placement, checking in regularly to ensure smooth onboarding and lasting success.</p>
@@ -160,7 +195,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* 3. Our Solutions Section */}
+      {/* 3. Operational Platforms Section */}
       <section style={{ ...styles.section, backgroundColor: '#F8FAFC' }}>
         <div style={styles.container}>
           <div style={styles.sectionHeader}>
@@ -173,12 +208,12 @@ const HomePage = () => {
             <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
               <div>
                 <h3 style={styles.solutionCardHeading}>VerifyMe Technologies</h3>
-                <p style={styles.solutionDesc}>Trusted background verification and professional screening services for cautious employers.</p>
+                <p style={styles.solutionDesc}>Trusted background verification and screening services for employers.</p>
                 <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-shield-alt" style={styles.featureIcon}></i> Criminal background checks</li>
-                  <li style={styles.featureItem}><i className="fas fa-graduation-cap" style={styles.featureIcon}></i> Academic verification</li>
-                  <li style={styles.featureItem}><i className="fas fa-history" style={styles.featureIcon}></i> Employment history screening</li>
-                  <li style={styles.featureItem}><i className="fas fa-id-card" style={styles.featureIcon}></i> Digital identity verification</li>
+                  <li style={styles.featureItem}><i className="fas fa-shield-alt" style={styles.featureIcon}></i> Criminal checks</li>
+                  <li style={styles.featureItem}><i className="fas fa-graduation-cap" style={styles.featureIcon}></i> Qualification verification</li>
+                  <li style={styles.featureItem}><i className="fas fa-history" style={styles.featureIcon}></i> Employment history</li>
+                  <li style={styles.featureItem}><i className="fas fa-id-card" style={styles.featureIcon}></i> Identity verification</li>
                 </ul>
               </div>
               <a href="#" style={styles.learnMore}>Learn More <i className="fas fa-arrow-right" style={{ marginLeft: '6px' }}></i></a>
@@ -188,12 +223,12 @@ const HomePage = () => {
             <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
               <div>
                 <h3 style={styles.solutionCardHeading}>InspHired Worx</h3>
-                <p style={styles.solutionDesc}>Flexible, on-demand temporary staffing solutions built for fast-paced operational ecosystems.</p>
+                <p style={styles.solutionDesc}>Flexible on-demand temporary staffing solutions.</p>
                 <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-mobile-alt" style={styles.featureIcon}></i> Mobile-first staffing solutions</li>
-                  <li style={styles.featureItem}><i className="fas fa-users" style={styles.featureIcon}></i> Contingent project workforces</li>
-                  <li style={styles.featureItem}><i className="fas fa-clock" style={styles.featureIcon}></i> Hourly & shift-based placements</li>
-                  <li style={styles.featureItem}><i className="fas fa-bolt" style={styles.featureIcon}></i> Rapid seasonal deployment</li>
+                  <li style={styles.featureItem}><i className="fas fa-mobile-alt" style={styles.featureIcon}></i> Mobile staffing</li>
+                  <li style={styles.featureItem}><i className="fas fa-users" style={styles.featureIcon}></i> Temporary workforce</li>
+                  <li style={styles.featureItem}><i className="fas fa-clock" style={styles.featureIcon}></i> Shift-based placements</li>
+                  <li style={styles.featureItem}><i className="fas fa-bolt" style={styles.featureIcon}></i> Rapid deployment</li>
                 </ul>
               </div>
               <a href="#" style={styles.learnMore}>Learn More <i className="fas fa-arrow-right" style={{ marginLeft: '6px' }}></i></a>
@@ -203,12 +238,12 @@ const HomePage = () => {
             <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
               <div>
                 <h3 style={styles.solutionCardHeading}>InspHired Connect</h3>
-                <p style={styles.solutionDesc}>Free centralized talent hub directly matching qualified applicants to open corporate positions.</p>
+                <p style={styles.solutionDesc}>Free talent portal connecting employers with qualified candidates.</p>
                 <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-upload" style={styles.featureIcon}></i> Instant parsing CV upload</li>
-                  <li style={styles.featureItem}><i className="fas fa-briefcase" style={styles.featureIcon}></i> Direct applications portal</li>
-                  <li style={styles.featureItem}><i className="fas fa-magic" style={styles.featureIcon}></i> Smart algorithm talent matching</li>
-                  <li style={styles.featureItem}><i className="fas fa-chart-simple" style={styles.featureIcon}></i> Managed career pathways</li>
+                  <li style={styles.featureItem}><i className="fas fa-upload" style={styles.featureIcon}></i> Upload your CV</li>
+                  <li style={styles.featureItem}><i className="fas fa-briefcase" style={styles.featureIcon}></i> Apply for jobs</li>
+                  <li style={styles.featureItem}><i className="fas fa-magic" style={styles.featureIcon}></i> Talent matching</li>
+                  <li style={styles.featureItem}><i className="fas fa-chart-simple" style={styles.featureIcon}></i> Career opportunities</li>
                 </ul>
               </div>
               <a href="#" style={{ ...styles.learnMore, ...styles.btnJoin }}>Join Free <i className="fas fa-user-plus" style={{ marginLeft: '6px' }}></i></a>
@@ -217,7 +252,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Leadership Team Section */}
+      {/* 4. Infinite Carousel Marquee Leadership Section */}
       <section style={{ ...styles.section, backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
         <div style={styles.container}>
           <div style={styles.sectionHeader}>
@@ -229,7 +264,6 @@ const HomePage = () => {
         
         <div style={styles.teamSliderContainer}>
           <div className="team-track-container">
-            {/* Seamless Duplicated array map guarantees continuous horizontal marquee animation loop */}
             {[...leadershipTeam, ...leadershipTeam].map((member, index) => (
               <div key={index} style={styles.teamMember}>
                 <div style={styles.teamAvatar}>
@@ -238,7 +272,6 @@ const HomePage = () => {
                     alt={member.name} 
                     style={styles.teamAvatarImage} 
                     onError={(e) => {
-                      // Fallback backup display in case file paths fail resolution checks
                       e.target.style.display = 'none';
                       e.target.nextSibling.style.display = 'block';
                     }}
@@ -429,6 +462,13 @@ const styles = {
     border: '1px solid rgba(0, 129, 143, 0.08)',
     boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
   },
+  gridFourCardOverride: {
+    backgroundColor: '#FFFFFF',
+    padding: '32px 28px',
+    borderRadius: '20px',
+    border: '1px solid rgba(0, 129, 143, 0.08)',
+    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
+  },
   diffIcon: {
     width: '48px',
     height: '48px',
@@ -496,7 +536,7 @@ const styles = {
     color: '#475569',
   },
   featureIcon: {
-    color: '#6E1D14',
+    color: '#00818F', // Swapped out burgundy icons for brand-aligned teal to match reference blueprint
     width: '18px',
     fontSize: '1.05rem',
   },
@@ -528,8 +568,8 @@ const styles = {
     borderRadius: '20px',
     padding: '32px 24px',
     textAlign: 'center',
-    boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
-    border: '1px solid rgba(0,0,0,0.03)',
+    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12)', // Aligned to share matching blueprint parameters
+    border: '1px solid rgba(0, 129, 143, 0.04)',
     width: '280px',
     flexShrink: 0,
   },
@@ -543,11 +583,10 @@ const styles = {
     justifyContent: 'center',
     position: 'relative',
     border: '3px solid #FFF2E8',
-    overflow: 'hidden', // Crops profiles cleanly into standard layout circles
+    overflow: 'hidden',
     boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
     backgroundColor: '#F1F5F9'
   },
-  /* NEW: Style block config controlling dynamic profile headshots directly */
   teamAvatarImage: {
     width: '100%',
     height: '100%',
