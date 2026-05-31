@@ -3,31 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const navItems = [
     { text: 'Home', href: '/', internal: true },
-    {
-      text: 'Find Work',
-      dropdown: [
-        { text: 'Available Jobs', href: 'https://app.insphired.jobs/jobs?standalone=true', internal: false },
-        { text: 'Career Lab', href: '/careerLab', internal: true }
-      ]
-    },
+    { text: 'Find Work', href: 'https://app.insphired.jobs/jobs?standalone=true', internal: false },
+    { text: 'Career Lab', href: '/careerLab', internal: true },
     { text: 'For Employers', href: '/employers', internal: true },
-    {
-      text: 'Our Services',
-      dropdown: [
-        { text: 'All Services', href: '/services', internal: true },
-        { text: 'RPO', href: '/services#rpo', internal: true },
-        { text: 'Executive Recruitment', href: '/services#executive', internal: true },
-        { text: 'Specialist Recruitment', href: '/services#specialist', internal: true },
-        { text: 'Targeted Headhunting', href: '/services#headhunting', internal: true },
-        { text: 'Bulk & Contract Staffing', href: '/services#bulk', internal: true },
-        { text: 'Temp Recruitment', href: '/services#temp', internal: true }
-      ]
-    },
-    { text: 'Client Center', href: '/client-center', internal: true },
+    { text: 'Our Services', href: '/services', internal: true },
+    { text: 'Client Center', href: '/client', internal: true },
     { text: 'About Us', href: '/about', internal: true },
     { text: 'Contact Us', href: '/contact', internal: true }
   ];
@@ -62,70 +45,42 @@ const Navbar = () => {
         {/* Nav Links */}
         <ul style={styles.navLinks}>
           {navItems.map((item, index) => (
-            <li
-              key={index}
-              style={{ position: 'relative' }}
-              onMouseEnter={() => {
-                setHoveredIndex(index);
-                if (item.dropdown) setActiveDropdown(index);
-              }}
-              onMouseLeave={() => {
-                setHoveredIndex(null);
-                setActiveDropdown(null);
-              }}
-            >
-              {item.dropdown ? (
-                <span
-                  style={{
-                    ...styles.navLink,
-                    color: hoveredIndex === index ? '#00818F' : '#1E2223',
-                    cursor: 'pointer',
-                    userSelect: 'none'
-                  }}
-                >
-                  {item.text}
-                  <i className="fas fa-chevron-down" style={styles.chevron}></i>
-                </span>
-              ) : (
-                renderLink(item, {
-                  ...styles.navLink,
-                  color: hoveredIndex === index ? '#00818F' : '#1E2223'
-                })
-              )}
-
-              {/* Dropdown panel */}
-              {item.dropdown && activeDropdown === index && (
-                <div style={styles.dropdownMenu}>
-                  {item.dropdown.map((subLink, subIndex) => (
-                    <React.Fragment key={subIndex}>
-                      {renderLink(subLink, styles.dropdownItem)}
-                    </React.Fragment>
-                  ))}
-                </div>
-              )}
+            <li key={index} style={{ position: 'relative' }}        
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}>
+              {renderLink(item, {
+                ...styles.navLink,
+                color: hoveredIndex === index ? '#00818F' : '#1E2223'
+              })}
+              <span 
+                style={{
+                  ...styles.hoverIndicator,
+                  transform: hoveredIndex === index ? 'scaleX(1)' : 'scaleX(0)'
+                }}
+              />
             </li>
           ))}
 
-          {/* CTA Button */}
+          {/* Cyan Blue Calendly CTA Button */}
           <li>
-            <Link to="/get-started" style={styles.ctaNav}>
-              <i className="fas fa-user-plus" aria-hidden="true" style={{ marginRight: '8px' }}></i>
-              Get started
-            </Link>
+            <a 
+              href="https://calendly.com/recruitment-insphired/book-a-consultation-with-a-client-relationship-manager?month=2026-05" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{
+                ...styles.ctaNav,
+                opacity: hoveredIndex === 'cta' ? 0.92 : 1,
+                transform: hoveredIndex === 'cta' ? 'translateY(-1px)' : 'translateY(0)'
+              }}
+              onMouseEnter={() => setHoveredIndex('cta')}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <i className="fas fa-calendar-alt" aria-hidden="true" style={{ marginRight: '8px' }}></i>
+              Book Consultation
+            </a>
           </li>
         </ul>
       </div>
-
-      <style>{`
-        .dropdown-hover-target {
-          transition: all 0.2s ease;
-        }
-        .dropdown-hover-target:hover {
-          background-color: #F8FAFC !important;
-          color: #00818F !important;
-          padding-left: 20px !important;
-        }
-      `}</style>
     </nav>
   );
 };
@@ -162,7 +117,7 @@ const styles = {
   },
   navLinks: {
     display: 'flex',
-    gap: '24px',
+    gap: '28px',
     alignItems: 'center',
     listStyle: 'none',
     margin: 0,
@@ -177,50 +132,30 @@ const styles = {
     alignItems: 'center',
     padding: '8px 0',
   },
-  chevron: {
-    fontSize: '0.75rem',
-    marginLeft: '6px',
-    opacity: 0.7,
-  },
-  dropdownMenu: {
+  hoverIndicator: {
     position: 'absolute',
-    top: '100%',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: '#FFFFFF',
-    minWidth: '210px',
-    boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 12px -3px rgba(0,0,0,0.05)',
-    borderRadius: '12px',
-    padding: '8px 0',
-    marginTop: '4px',
-    border: '1px solid rgba(0,0,0,0.05)',
-    display: 'flex',
-    flexDirection: 'column',
-    overflow: 'hidden',
-  },
-  dropdownItem: {
-    color: '#334155',
-    padding: '10px 16px',
-    textDecoration: 'none',
-    fontSize: '0.88rem',
-    fontWeight: 500,
-    textAlign: 'left',
-    transition: 'all 0.2s ease',
-    display: 'block',
+    bottom: '2px',
+    left: 0,
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#00818F',
+    transformOrigin: 'left',
+    transition: 'transform 0.25s ease',
   },
   ctaNav: {
-    backgroundColor: '#00818F',
-    color: 'white',
-    padding: '10px 20px',
+    backgroundColor: '#00818F', // Clean Cyan Blue matching branding exactly
+    color: '#FFFFFF',
+    padding: '10px 22px',
     borderRadius: '40px',
     fontWeight: 600,
     textDecoration: 'none',
     fontSize: '0.9rem',
-    transition: 'all 0.2s ease',
+    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
     whiteSpace: 'nowrap',
     display: 'inline-flex',
     alignItems: 'center',
-  },
+    boxShadow: '0 4px 12px rgba(0, 129, 143, 0.2)',
+  }
 };
 
 export default Navbar;

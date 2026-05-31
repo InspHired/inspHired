@@ -29,7 +29,6 @@ const CareerLabPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Submitted:', formData);
-    // Add submission logic here
   };
 
   return (
@@ -50,7 +49,7 @@ const CareerLabPage = () => {
           box-shadow: 0 16px 32px -5px rgba(0, 129, 143, 0.12) !important;
         }
 
-        .btn-hover-transition { transition: all 0.2s ease !important; }
+        .btn-hover-transition { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important; }
         .btn-hover-transition:hover { transform: translateY(-2px) !important; opacity: 0.95; }
         
         .form-input {
@@ -74,9 +73,8 @@ const CareerLabPage = () => {
 
       <Navbar />
 
-      {/* Hero Header Section */}
+      {/* Redesigned Premium Plain Dark Blue Hero Section */}
       <header style={styles.hero}>
-        <div style={styles.heroOverlay}></div>
         <div style={styles.container}>
           <div style={styles.heroContent} className="animate-fadeup">
             <span style={styles.heroTag}>Career Lab</span>
@@ -85,13 +83,15 @@ const CareerLabPage = () => {
               Many talented professionals struggle not because they lack potential, but because they lack access to practical career guidance. Career Lab changes that — giving you the tools, insight, and professional skills to succeed in today's job market.
             </p>
             
-            {/* Journey Path Indicator */}
-            <div style={styles.journeyPath}>
-              <span style={styles.journeyStep}>Job Searching</span>
-              <div style={styles.journeyArrow}><i className="fas fa-chevron-right"></i></div>
-              <span style={styles.journeyStep}>Workplace Readiness</span>
-              <div style={styles.journeyArrow}><i className="fas fa-chevron-right"></i></div>
-              <span style={styles.journeyStep}>Long-Term Career Growth</span>
+            {/* Action Row & Journey Path */}
+            <div style={styles.heroActionRow}>
+              <div style={styles.journeyPath}>
+                <span style={styles.journeyStep}>Job Searching</span>
+                <div style={styles.journeyArrow}><i className="fas fa-chevron-right"></i></div>
+                <span style={styles.journeyStep}>Workplace Readiness</span>
+                <div style={styles.journeyArrow}><i className="fas fa-chevron-right"></i></div>
+                <span style={styles.journeyStep}>Long-Term Career Growth</span>
+              </div>
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@ const CareerLabPage = () => {
               <span style={styles.moduleNumber}>02</span>
               <h3 style={styles.cardHeading}>Professional Communication</h3>
               <ul style={styles.cardList}>
-                <li>Mastering secure email and communication etiquette in professional systems.</li>
+                <li>Mastering secure email and communication etiquette in professional environments.</li>
                 <li>Live interview dynamics — how to consistently speak with absolute clarity and calm confidence.</li>
                 <li>Maintaining pristine professional tone and alignment across digital platforms and social media.</li>
               </ul>
@@ -393,68 +393,66 @@ const styles = {
   },
   hero: {
     position: 'relative',
-    padding: '180px 0 120px 0',
-    color: 'white',
-    backgroundImage: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundColor: '#0F1112',
-  },
-  heroOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to bottom, rgba(15, 17, 18, 0.95) 0%, rgba(15, 17, 18, 0.75) 100%)',
-    zIndex: 1,
+    padding: '140px 0 110px 0',
+    color: '#FFFFFF',
+    backgroundColor: '#0B1329', // Solid premium deep corporate navy blue
+    overflow: 'hidden',
   },
   heroContent: {
-    maxWidth: '840px',
+    maxWidth: '880px',
     position: 'relative',
     zIndex: 2,
   },
   heroTag: {
-    fontSize: '0.85rem',
-    letterSpacing: '3px',
+    fontSize: '0.8rem',
+    letterSpacing: '2px',
     fontWeight: 700,
     textTransform: 'uppercase',
     color: '#00818F',
-    marginBottom: '20px',
-    display: 'block'
+    backgroundColor: 'rgba(0, 129, 143, 0.12)',
+    padding: '6px 14px',
+    borderRadius: '20px',
+    display: 'inline-block',
+    marginBottom: '24px'
   },
   heroHeading: {
-    fontSize: '3.4rem',
+    fontSize: '3.5rem',
     fontWeight: 800,
-    lineHeight: 1.2,
+    lineHeight: 1.15,
     margin: '0 0 24px 0',
     color: '#FFFFFF',
-    letterSpacing: '-1px'
+    letterSpacing: '-1.5px'
   },
   heroSubheading: {
-    fontSize: '1.2rem',
+    fontSize: '1.15rem',
     lineHeight: 1.65,
-    color: '#E2E8F0',
-    opacity: 0.9,
-    margin: '0 0 40px 0'
+    color: '#94A3B8',
+    margin: '0 0 36px 0',
+    maxWidth: '780px'
+  },
+  heroActionRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '24px',
+    flexWrap: 'wrap'
   },
   journeyPath: {
     display: 'inline-flex',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    padding: '12px 24px',
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+    padding: '10px 20px',
     borderRadius: '50px',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
     flexWrap: 'wrap',
     gap: '12px'
   },
   journeyStep: {
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
     fontWeight: 600,
-    color: '#FFFFFF'
+    color: '#E2E8F0'
   },
   journeyArrow: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     color: '#00818F',
     display: 'flex',
     alignItems: 'center'

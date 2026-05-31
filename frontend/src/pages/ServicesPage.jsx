@@ -30,9 +30,8 @@ const ServicesPage = () => {
 
       <Navbar />
 
-      {/* Clean, Minimalist Hero Header Section */}
+      {/* Redesigned Premium Plain Dark Blue Hero Header Section */}
       <header style={styles.hero}>
-        <div style={styles.heroOverlay}></div>
         <div style={styles.container}>
           <div style={styles.heroContent} className="animate-fadeup">
             <span style={styles.heroTag}>What We Do</span>
@@ -163,7 +162,7 @@ const ServicesPage = () => {
                 <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span><strong>Biometric Criminal Checks</strong> — Secure digital identity clearance.</span></li>
                 <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span><strong>ID, Work Permits & Drivers Licenses</strong> — Strict regional legal validations.</span></li>
                 <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span><strong>Education Qualifications</strong> — Direct authentication with academic bodies.</span></li>
-                <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span>export default ServicesPage;<strong>Employment References</strong> — Complete audio recorded historical verifications.</span></li>
+                <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span><strong>Employment References</strong> — Complete audio recorded historical verifications.</span></li>
                 <li style={styles.vItem}><div style={styles.vCheck}><i className="fas fa-check"></i></div> <span><strong>Interview Assistance Panels</strong> — Expert cross-examinations for target roles.</span></li>
               </ul>
             </div>
@@ -196,21 +195,10 @@ const styles = {
   },
   hero: {
     position: 'relative',
-    padding: '160px 0 100px 0',
-    color: 'white',
-    backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundColor: '#0F1112',
-  },
-  heroOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to right, rgba(15, 17, 18, 0.92) 30%, rgba(15, 17, 18, 0.6) 100%)',
-    zIndex: 1,
+    padding: '130px 0 100px 0',
+    color: '#FFFFFF',
+    backgroundColor: '#0B1329', // Solid premium deep corporate navy blue matching Career Lab layout exactly
+    overflow: 'hidden',
   },
   heroContent: {
     maxWidth: '640px',
@@ -218,13 +206,16 @@ const styles = {
     zIndex: 2,
   },
   heroTag: {
-    fontSize: '0.85rem',
-    letterSpacing: '3px',
+    fontSize: '0.8rem',
+    letterSpacing: '2px',
     fontWeight: 700,
     textTransform: 'uppercase',
     color: '#00818F',
-    marginBottom: '16px',
-    display: 'block'
+    backgroundColor: 'rgba(0, 129, 143, 0.12)',
+    padding: '6px 14px',
+    borderRadius: '20px',
+    display: 'inline-block',
+    marginBottom: '18px'
   },
   heroHeading: {
     fontSize: '3.6rem',
@@ -232,7 +223,7 @@ const styles = {
     lineHeight: 1.15,
     margin: 0,
     color: '#FFFFFF',
-    letterSpacing: '-1px'
+    letterSpacing: '-1.5px'
   },
   section: {
     padding: '100px 0',

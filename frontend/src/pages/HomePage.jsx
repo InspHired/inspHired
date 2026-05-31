@@ -2,288 +2,346 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-// Team Array Configuration
 const leadershipTeam = [
+  { name: 'Landry Mutombo',       role: 'Chief Executive',                     img: '/assets/InspHiredTeam/Mr L.png'   },
+  { name: 'Norma Banda',          role: 'Managing Partner',                    img: '/assets/InspHiredTeam/Norma.png'    },
+  { name: 'Rochelle Titus',       role: 'Managing Partner',                    img: '/assets/InspHiredTeam/Rochelle.png' },
+  { name: 'Joyce Muya',           role: 'Managing Partner',                    img: '/assets/InspHiredTeam/Joyce.png'    },
+  { name: 'Stefanie Peters',      role: 'Managing Partner',                    img: '/assets/InspHiredTeam/Stef.png'     },
+  { name: 'Deborah Mubenga',      role: 'Head of Operations',                  img: '/assets/InspHiredTeam/Deborah.png'  },
+  { name: 'Gègè Sena Saleh',      role: 'Head of Finance',                     img: '/assets/InspHiredTeam/Gege.png'     },
+  { name: 'Unathi Mbasa',         role: 'Operations Team Lead',                img: '/assets/InspHiredTeam/Unathi.png'   },
+  { name: 'Ene-ene Netshiswinzhe',role: 'HR Generalist',                       img: '/assets/InspHiredTeam/Ene.png'      },
+  { name: 'Tumelo Mpeta',         role: 'Talent Marketing & ATS Coordinator', img: '/assets/InspHiredTeam/Tumelo.png'   },
+  { name: 'Phamela Mthitshane',   role: 'Candidate Manager',                   img: '/assets/InspHiredTeam/Phamela.png'  },
+  { name: 'Sharrity Mhlanga',     role: 'Recruitment Researcher',              img: '/assets/InspHiredTeam/Sharity.png'  },
+];
+
+const ecosystemPlatforms = [
   {
-    name: 'Adaobi Okonkwo',
-    role: 'CEO & Founder',
-    img: '/assets/InspHiredTeam/Basetsana.png'
-  },
- {
-    name: 'Deborah Mubenga',
-    role: 'Head of Operations',
-    img: '/assets/InspHiredTeam/Deborah.png'
-  },
-      {
-    name: 'Basetsana Pule',
-    role: 'Associate',
-    img: '/assets/InspHiredTeam/Basetsana.png'
-  },
-  {
-    name: 'Norma Banda',
-    role: 'Managing Partner',
-    img: '/assets/InspHiredTeam/Norma.png'
-  },
-  {
-    name: 'Phamela Mthitshane ',
-    role: 'Candidate Manager',
-    img: '/assets/InspHiredTeam/Phamela.png'
-  },
-  {
-    name: 'Rochelle Titus',
-    role: 'Managing Partner',
-    img: '/assets/InspHiredTeam/Rochelle.png'
+    label:   'Proprietary AI',
+    name:    'Jobot by InspHired',
+    tagline: 'In-house AI Applicant Tracking System',
+    desc:    'Jobot manages the full recruitment pipeline — from job spec to placement — ensuring speed, consistency, and quality on every search we run.',
+    features:['AI-powered candidate matching', 'Full pipeline management', 'ATS & CRM in one platform', 'Built & owned by InspHired'],
+    cta:     'Learn more',
+    ctaHref: '/jobot',
+    accent:  '#00818F',
+    mockIcon:'fas fa-robot',
+    img:     '/assets/JobBot.png',
   },
   {
-    name: 'Sharrity Mhlanga',
-    role: 'Recruitment Researcher',
-    img: '/assets/InspHiredTeam/Sharity.png'
+    label:   'Temp & contract',
+    name:    'InspHired Worx',
+    tagline: 'On-demand temp booking platform',
+    desc:    'A pre-vetted talent pool and on-demand temp booking platform. Request, manage, and deploy temporary staff rapidly — without the admin burden.',
+    features:['Pre-vetted talent pool', 'On-demand booking', 'Shift-based placements', 'Rapid deployment'],
+    cta:     'Learn more',
+    ctaHref: '/worx',
+    accent:  '#00818F',
+    mockIcon:'fas fa-users',
+    img:     '/assets/InspHiredWorx.png',
   },
   {
-    name: 'Unathi Mbasa',
-    role: 'Operations Team Lead',
-    img: '/assets/InspHiredTeam/Unathi.png'
+    label:   'Free for candidates',
+    name:    'InspHired Connect',
+    tagline: 'Free job board & CRM',
+    desc:    'A free job board and CRM connecting qualified candidates directly with open opportunities. Upload a CV, get matched, apply — all in one place.',
+    features:['Free for all candidates', 'Smart talent matching', 'Direct employer access', 'Career pathway tools'],
+    cta:     'Learn More',
+    ctaHref: '/connect',
+    accent:  '#00818F',
+    mockIcon:'fas fa-bolt',
+    img:     '/assets/InspHiredConnect.png',
   },
   {
-    name: 'Joyce Muya',
-    role: 'Managing Partner',
-    img: '/assets/InspHiredTeam/Joyce.png'
+    label:   'Verification',
+    name:    'VerifyMe',
+    tagline: 'Background checks & screening',
+    desc:    'Every InspHired candidate is screened through VerifyMe before being presented — giving you full confidence in every hire.',
+    features:['Criminal & biometric checks', 'Education verification', 'Employment history', 'ID & work permits'],
+    cta:     'Learn more',
+    ctaHref: '/verify-me',
+    accent:  '#00818F',
+    mockIcon:'fas fa-shield-alt',
+    img:     '/assets/VerifyMe.png',
   },
-  {
-    name: 'Tumelo Mpeta',
-    role: 'Talent Marketing & ATS Corodinator',
-    img: '/assets/InspHiredTeam/Tumelo.png'
-  },
-      {
-    name: 'Ene-ene NetShiswinzhe',
-    role: 'HR Generalist',
-    img: '/assets/InspHiredTeam/Ene.png'
-  },
-      {
-    name: 'Gègè Sena Saleh',
-    role: 'Head of Finance',
-    img: '/assets/InspHiredTeam/Gege.png'
-  }
-  ,    {
-    name: 'Stefanie Peters',
-    role: 'Managing Partner',
-    img: '/assets/InspHiredTeam/Stef.png'
-  }
 ];
 
 const HomePage = () => {
   return (
-    <div style={globalStyles.pageWrapper}>
-      {/* Global CSS Keyframe Animations & Class Modifiers */}
+    <div style={g.pageWrapper}>
       <style>{`
-        @keyframes fadeLeft {
-          from { opacity: 0; transform: translateX(-30px); }
-          to { opacity: 1; transform: translateX(0); }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes scrollTeams {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-280px * 6 - 24px * 6)); }
+        @keyframes scrollTeam {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
         }
-        .animate-fadeleft { animation: fadeLeft 0.8s ease-out; }
-        .team-track-container { display: flex; gap: 24px; width: max-content; animation: scrollTeams 40s linear infinite; }
-        .team-track-container:hover { animation-play-state: paused; }
-        
-        /* Interactive Cyan Card Base Class */
-        .interactive-cyan-card {
-          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+        .fade-up { animation: fadeUp 0.8s ease-out both; }
+        .team-track { display:flex; gap:20px; width:max-content; animation: scrollTeam 50s linear infinite; }
+        .team-track:hover { animation-play-state: paused; }
+
+        .eco-card {
+          transition: transform 0.28s cubic-bezier(0.16,1,0.3,1), box-shadow 0.28s ease;
         }
-        .interactive-cyan-card:hover {
-          transform: translateY(-6px) !important;
-          box-shadow: 0 20px 40px -5px rgba(0, 129, 143, 0.22), 0 8px 20px -3px rgba(0, 129, 143, 0.1) !important;
+        .eco-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 48px -8px rgba(110,29,20,0.12) !important;
         }
-        .solutions-card-override:hover {
-          transform: translateY(-8px) !important;
+        .val-card {
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
-        .btn-hover-transition { transition: all 0.2s ease !important; }
-        .btn-hover-transition:hover { transform: translateY(-2px) !important; }
+        .val-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 18px 40px -8px rgba(110,29,20,0.15) !important;
+        }
+        .team-card {
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .team-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px -8px rgba(110,29,20,0.16) !important;
+        }
+        .btn-t { transition: all 0.2s ease; }
+        .btn-t:hover { opacity: 0.88; transform: translateY(-1px); }
       `}</style>
 
       <Navbar />
 
-      {/* Hero Header Section */}
-      <header style={styles.hero}>
-        <video 
-          style={styles.heroVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop"
-        >
+      {/* ── HERO ── */}
+      <header style={s.hero}>
+        <video style={s.heroVid} autoPlay loop muted playsInline
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop">
           <source src="https://assets.mixkit.co/videos/preview/mixkit-executives-working-together-in-a-bright-office-41556-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
-        <div style={styles.heroOverlay}></div>
-        <div style={styles.container}>
-          <div style={styles.heroContent} className="animate-fadeleft">
-            <div style={styles.heroSlogan}>
-              <i className="fas fa-globe-africa" style={{ marginRight: '8px' }}></i> AFRICA'S RECRUITMENT PARTNER
+        <div style={s.heroOverlay} />
+        <div style={s.container}>
+          <div style={s.heroContent} className="fade-up">
+            <div style={s.heroBadge}>
+              <i className="fas fa-globe-africa" style={{marginRight:'7px'}}></i>
+              Africa's Recruitment Partner · Est. 2015
             </div>
-            <h1 style={styles.heroHeading}>Connecting great talent with great companies</h1>
-            <p style={styles.heroText}>We're solving Africa's employment challenges — one meaningful placement at a time. Whether you're looking for your next role or building a world-class team, we've got you covered.</p>
-            <div style={styles.heroButtons}>
-              <a href="#" style={styles.btnPrimary} className="btn-hover-transition">
-                <i className="fas fa-paper-plane" style={{ marginRight: '8px' }}></i> Find talent
+            <h1 style={s.heroH1}>
+              Connecting great talent with great companies
+            </h1>
+            <p style={s.heroSub}>
+              We don't just fill jobs — we build careers, relationships, and futures.
+              InspHired has been solving Africa's employment challenges through 
+              innovative technology and people who care.
+            </p>
+            <div style={s.heroBtns}>
+              <a href="#" style={s.btnCyan} className="btn-t">
+                <i className="fas fa-paper-plane" style={{marginRight:'8px'}}></i>Find talent
               </a>
-              <a href="#" style={styles.btnOutlineLight} className="btn-hover-transition">
-                <i className="fas fa-chart-line" style={{ marginRight: '8px' }}></i> Available Jobs
+              <a href="https://app.insphired.jobs/jobs?standalone=true" style={s.btnOutline} className="btn-t">
+                <i className="fas fa-briefcase" style={{marginRight:'8px'}}></i>Available jobs
               </a>
             </div>
           </div>
         </div>
       </header>
 
-      {/* 1. Purpose & Direction Section */}
-      <section style={{ ...styles.section, backgroundColor: '#F8FAFC' }}>
-        <div style={styles.container}>
-          <div style={styles.sectionHeader}>
-            <span style={styles.sectionTag}>Our Purpose & Direction</span>
-            <h2 style={styles.sectionTitle}>Reshaping Africa's Workforce Ecosystem</h2>
-            <p style={styles.sectionSub}>Driven by impact, guided by innovation — we connect enterprise needs with exceptional individual execution.</p>
-          </div>
-          <div style={styles.gridTwo}>
-            <div style={styles.mvCard} className="interactive-cyan-card">
-              <div style={styles.mvIcon}><i className="fas fa-rocket"></i></div>
-              <h3 style={styles.cardHeading}>Our Mission</h3>
-              <p style={styles.cardText}>Innovative recruitment through technology and people — custom-built for Africa's unique employment landscape.</p>
+      {/* ── STORY ── */}
+      <section style={{...s.section, background:'#F8FAFC'}}>
+        <div style={s.container}>
+          <div style={s.storyGrid}>
+            <div style={s.storyLeft}>
+              <span style={s.eyebrow}>Who we are</span>
+              <h2 style={s.h2}>Where African Talent<br/>Meets Opportunity</h2>
+              <p style={s.bodyText}>
+                Founded in 2015, InspHired set out with a clear mission — to bridge the gap 
+                between candidates and clients through innovative technology and dedicated talent 
+                specialists. What started as a focused recruitment firm has steadily grown into 
+                a full talent ecosystem serving employers and job seekers across the continent.
+              </p>
+              <p style={{...s.bodyText, marginTop:'16px'}}>
+                Today, InspHired operates a multi-platform digital infrastructure engineered to 
+                simplify hiring. We are home to a team of passionate professionals who believe 
+                the right placement changes lives — creating long-term value for candidates, 
+                growing enterprises, and communities across Africa.
+              </p>
+              <blockquote style={s.quote}>
+                "We don't just fill jobs — we build careers, relationships, and futures."
+              </blockquote>
             </div>
-            <div style={styles.mvCard} className="interactive-cyan-card">
-              <div style={styles.mvIcon}><i className="fas fa-eye"></i></div>
-              <h3 style={styles.cardHeading}>Our Vision</h3>
-              <p style={styles.cardText}>To be the premier solution to Africa's enterprise staffing challenges, from entry-level positions to executive searches.</p>
+            
+            <div style={s.storyImageWrap}>
+              <img 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" 
+                alt="Diverse modern business team collaborating at a table in a bright workspace" 
+                style={s.storyImage} 
+              />
+              <div style={s.storyImageOverlay} />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 2. Value Propositions (Why InspHired) Section */}
-      <section style={{ ...styles.section, backgroundColor: '#FFFFFF' }}>
-        <div style={styles.container}>
-          <div style={styles.sectionHeader}>
-            <span style={styles.sectionTag}>Why InspHired</span>
-            <h2 style={styles.sectionTitle}>What Sets Us Apart</h2>
-            <p style={styles.sectionSub}>We look past the CV to structure long-term growth and organizational health across the African continent.</p>
-          </div>
-
-          <div style={styles.gridFour}>
-            <div style={styles.diffCard} className="interactive-cyan-card">
-              <div style={styles.diffIcon}><i className="fas fa-heart-pulse"></i></div>
-              <h4 style={styles.smallCardHeading}>Culture-first matching</h4>
-              <p style={styles.diffText}>Beyond skills — every candidate is assessed for cultural alignment with your organisation's values and team dynamics.</p>
-            </div>
-            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
-              <div style={styles.diffIcon}><i className="fas fa-network-wired"></i></div>
-              <h4 style={styles.smallCardHeading}>Deep African networks</h4>
-              <p style={styles.diffText}>A decade of relationships across industries and geographies means faster, higher-quality access to the right talent.</p>
-            </div>
-            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
-              <div style={styles.diffIcon}><i className="fas fa-user-check"></i></div>
-              <h4 style={styles.smallCardHeading}>End-to-end verification</h4>
-              <p style={styles.diffText}>From criminal checks to credentials — every candidate is fully verified before being presented to you.</p>
-            </div>
-            <div style={styles.gridFourCardOverride} className="interactive-cyan-card">
-              <div style={styles.diffIcon}><i className="fas fa-handshake-angle"></i></div>
-              <h4 style={styles.smallCardHeading}>Post-placement support</h4>
-              <p style={styles.diffText}>We stay involved after placement, checking in regularly to ensure smooth onboarding and lasting success.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Operational Platforms Section */}
-      <section style={{ ...styles.section, backgroundColor: '#F8FAFC' }}>
-        <div style={styles.container}>
-          <div style={styles.sectionHeader}>
-            <span style={styles.sectionTag}>Our Solutions</span>
-            <h2 style={styles.sectionTitle}>Platforms Tailored For Growth</h2>
-            <p style={styles.sectionSub}>Innovative tools and premium professional networks built exclusively for scaling African businesses.</p>
-          </div>
-          <div style={styles.gridThree}>
-            {/* VerifyMe Technologies */}
-            <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
-              <div>
-                <h3 style={styles.solutionCardHeading}>VerifyMe Technologies</h3>
-                <p style={styles.solutionDesc}>Trusted background verification and screening services for employers.</p>
-                <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-shield-alt" style={styles.featureIcon}></i> Criminal checks</li>
-                  <li style={styles.featureItem}><i className="fas fa-graduation-cap" style={styles.featureIcon}></i> Qualification verification</li>
-                  <li style={styles.featureItem}><i className="fas fa-history" style={styles.featureIcon}></i> Employment history</li>
-                  <li style={styles.featureItem}><i className="fas fa-id-card" style={styles.featureIcon}></i> Identity verification</li>
-                </ul>
-              </div>
-              <a href="#" style={styles.learnMore}>Learn More <i className="fas fa-arrow-right" style={{ marginLeft: '6px' }}></i></a>
-            </div>
-
-            {/* InspHired Worx */}
-            <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
-              <div>
-                <h3 style={styles.solutionCardHeading}>InspHired Worx</h3>
-                <p style={styles.solutionDesc}>Flexible on-demand temporary staffing solutions.</p>
-                <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-mobile-alt" style={styles.featureIcon}></i> Mobile staffing</li>
-                  <li style={styles.featureItem}><i className="fas fa-users" style={styles.featureIcon}></i> Temporary workforce</li>
-                  <li style={styles.featureItem}><i className="fas fa-clock" style={styles.featureIcon}></i> Shift-based placements</li>
-                  <li style={styles.featureItem}><i className="fas fa-bolt" style={styles.featureIcon}></i> Rapid deployment</li>
-                </ul>
-              </div>
-              <a href="#" style={styles.learnMore}>Learn More <i className="fas fa-arrow-right" style={{ marginLeft: '6px' }}></i></a>
-            </div>
-
-            {/* InspHired Connect */}
-            <div style={styles.solutionCard} className="interactive-cyan-card solutions-card-override">
-              <div>
-                <h3 style={styles.solutionCardHeading}>InspHired Connect</h3>
-                <p style={styles.solutionDesc}>Free talent portal connecting employers with qualified candidates.</p>
-                <ul style={styles.featureList}>
-                  <li style={styles.featureItem}><i className="fas fa-upload" style={styles.featureIcon}></i> Upload your CV</li>
-                  <li style={styles.featureItem}><i className="fas fa-briefcase" style={styles.featureIcon}></i> Apply for jobs</li>
-                  <li style={styles.featureItem}><i className="fas fa-magic" style={styles.featureIcon}></i> Talent matching</li>
-                  <li style={styles.featureItem}><i className="fas fa-chart-simple" style={styles.featureIcon}></i> Career opportunities</li>
-                </ul>
-              </div>
-              <a href="#" style={{ ...styles.learnMore, ...styles.btnJoin }}>Join Free <i className="fas fa-user-plus" style={{ marginLeft: '6px' }}></i></a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Infinite Carousel Marquee Leadership Section */}
-      <section style={{ ...styles.section, backgroundColor: '#FFFFFF', overflow: 'hidden' }}>
-        <div style={styles.container}>
-          <div style={styles.sectionHeader}>
-            <span style={styles.sectionTag}>Human Capital</span>
-            <h2 style={styles.sectionTitle}>Our Leadership Team</h2>
-            <p style={styles.sectionSub}>Passionate human resource and tech experts bridging Africa's widening enterprise talent gap. Hover to pause slide.</p>
-          </div>
-        </div>
-        
-        <div style={styles.teamSliderContainer}>
-          <div className="team-track-container">
-            {[...leadershipTeam, ...leadershipTeam].map((member, index) => (
-              <div key={index} style={styles.teamMember}>
-                <div style={styles.teamAvatar}>
-                  <img 
-                    src={member.img} 
-                    alt={member.name} 
-                    style={styles.teamAvatarImage} 
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
-                  />
-                  <i className="fas fa-user-tie" style={{ display: 'none', fontSize: '36px', color: 'rgba(255,255,255,0.8)' }}></i>
+          <div style={s.mvCardsRow}>
+            <div style={s.mvCard}>
+              <div style={s.mvCardBar} />
+              <div style={s.mvCardInner}>
+                <div style={s.mvNumWrap}>
+                  <span style={s.mvNum}>01</span>
                 </div>
-                <div style={styles.teamName}>{member.name}</div>
-                <div style={styles.teamRole}>{member.role}</div>
+                <div style={{ flex: 1 }}>
+                  <h3 style={s.mvTitle}>Our Mission</h3>
+                  <p style={s.mvText}>
+                    To bridge the gap between candidates and clients through innovative
+                    technology and InspHired people — custom-built for Africa's unique
+                    employment landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div style={s.mvCard}>
+              <div style={{...s.mvCardBar, background: C.cyan}} />
+              <div style={s.mvCardInner}>
+                <div style={{...s.mvNumWrap, background: 'rgba(0,129,143,0.08)', color: C.cyan}}>
+                  <span style={s.mvNum}>02</span>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3 style={s.mvTitle}>Our Vision</h3>
+                  <p style={s.mvText}>
+                    To be the number one solution to Africa's employment challenges —
+                    from entry-level positions to C-suite executive searches — across
+                    the continent.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ECOSYSTEM ── */}
+      <section style={{...s.section, background: C.white}}>
+        <div style={s.container}>
+          <div style={s.secHead}>
+            <span style={s.eyebrow}>The InspHired Ecosystem</span>
+            <h2 style={s.h2}>More than a recruitment agency</h2>
+            <p style={s.secSub}>
+                  Four connected platforms, each solving a different part of the employment challenge — working together as one ecosystem. 
+            </p>
+          </div>
+          <div style={s.ecoGrid}>
+            {ecosystemPlatforms.map((p, i) => (
+              <div key={i} style={s.ecoCard} className="eco-card">
+                
+                {/* Top Header Layer */}
+                <div style={s.ecoTopRow}>
+                  <div style={{...s.ecoLabel, color: p.accent, borderColor: `${p.accent}25`, background: `${p.accent}0C`}}>
+                    {p.label}
+                  </div>
+                  
+                  {/* Expanded circular badge enclosing the asset logo */}
+                  <div style={s.ecoCircleBadge}>
+                    {p.img ? (
+                      <img 
+                        src={p.img} 
+                        alt={`${p.name} logo`}
+                        style={s.ecoBadgeImg}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                    ) : null}
+                    <div style={{...s.ecoBadgeIconFallback, background: `${p.accent}12`}}>
+                      <i className={p.mockIcon} style={{color: p.accent, fontSize: '1.2rem'}}></i>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <h3 style={s.ecoName}>{p.name}</h3>
+                <p style={s.ecoTagline}>{p.tagline}</p>
+                <p style={s.ecoDesc}>{p.desc}</p>
+                <ul style={s.ecoList}>
+                  {p.features.map((f, fi) => (
+                    <li key={fi} style={s.ecoListItem}>
+                      <i className="fas fa-check" style={{...s.ecoCheck, color: p.accent}}></i>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href={p.ctaHref} style={{...s.ecoCta, borderColor: p.accent, color: p.accent}} className="btn-t">
+                  {p.cta} <i className="fas fa-arrow-right" style={{marginLeft:'6px', fontSize:'0.75rem'}}></i>
+                </a>
               </div>
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── VALUES ── */}
+      <section style={{...s.section, background:'#F8FAFC'}}>
+        <div style={s.container}>
+          <div style={s.secHead}>
+            <span style={s.eyebrow}>What drives us</span>
+            <h2 style={s.h2}>Three values. Every decision.</h2>
+            <p style={s.secSub}>
+              Our actions and attitudes are guided by three core values that shape how
+              we work with each other, our candidates, and our clients.
+            </p>
+          </div>
+          <div style={s.valGrid}>
+            {[
+              { icon:'fas fa-fire-flame-curved', title:'Passion',      accent: C.burgundy,
+                text:'Life is too short to not love what you do, why you do it, and who you do it with. Passion is in everything we do — and our people are driven by it every single day.' },
+              { icon:'fas fa-scale-balanced',    title:'Integrity',    accent: C.burgundy,
+                text:'Being authentic in the way we deal with colleagues, candidates, and clients is key to our success. We are committed to doing the right thing in the right way, always.' },
+              { icon:'fas fa-bullseye',          title:'Accountability', accent: C.burgundy,
+                text:'In all our activities, we operate with full transparency. We accept responsibility and hold ourselves accountable — to each other, to our candidates, and to our clients.' },
+            ].map((v, i) => (
+              <div key={i} style={s.valCard} className="val-card">
+                <div style={{...s.valIconRow}}>
+                  <div style={{...s.valIconBox, background: v.accent === C.burgundy ? 'rgba(110,29,20,0.08)' : 'rgba(0,129,143,0.08)'}}>
+                    <i className={v.icon} style={{fontSize:'1.25rem', color: v.accent}}></i>
+                  </div>
+                  <h3 style={{...s.valTitle, color: v.accent}}>{v.title}</h3>
+                </div>
+                <p style={s.valText}>{v.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM ── */}
+      <section style={{...s.section, background: C.white, overflow:'hidden'}}>
+        <div style={s.container}>
+          <div style={s.secHead}>
+            <span style={s.eyebrow}>Our people</span>
+            <h2 style={s.h2}>The team behind InspHired</h2>
+            <p style={s.secSub}>
+              Experienced recruitment professionals united by one mission —
+              connecting great talent with great companies across Africa. Hover to pause.
+            </p>
+          </div>
+        </div>
+        <div style={s.teamSlider}>
+          <div className="team-track">
+            {[...leadershipTeam, ...leadershipTeam].map((m, i) => (
+              <div key={i} style={s.teamCard} className="team-card">
+                <div style={s.teamAvatar}>
+                  <img src={m.img} alt={m.name} style={s.teamImg}
+                    onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+                  <div style={s.teamFallback}>
+                    <i className="fas fa-user-tie" style={{fontSize:'1.8rem', color:'rgba(255,255,255,0.85)'}}></i>
+                  </div>
+                </div>
+                <div style={s.teamName}>{m.name}</div>
+                <div style={s.teamRole}>{m.role}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p style={{textAlign:'center', marginTop:'32px', fontSize:'0.9rem', color: C.slateLight, padding:'0 32px'}}>
+          Backed by a full team of candidate managers, recruitment researchers, account managers, and operations specialists — all on the InspHired bus.
+        </p>
       </section>
 
       <Footer />
@@ -291,321 +349,119 @@ const HomePage = () => {
   );
 };
 
-const globalStyles = {
+/* ─────────────────────────────────
+    COLOR TOKENS
+───────────────────────────────── */
+const C = {
+  burgundy:     '#6E1D14',
+  burgundyDk:   '#54140E',
+  cyan:         '#00818F',
+  cyanDk:       '#005F6A',
+  cyanLight:    '#5ecfd9',
+  slate:        '#1E2223',
+  slateText:    '#334155',
+  slateLight:   '#64748B',
+  white:        '#FFFFFF',
+  bgOff:        '#F8FAFC',
+  border:       'rgba(110,29,20,0.08)',
+  shadowSm:     '0 6px 24px -6px rgba(110,29,20,0.05), 0 2px 8px -2px rgba(110,29,20,0.03)',
+};
+
+const g = {
   pageWrapper: {
-    fontFamily: "'Inter', sans-serif",
-    color: '#334155',
-    backgroundColor: '#FFFFFF',
-    lineHeight: 1.6,
+    fontFamily:"'Inter', sans-serif",
+    color: C.slateText,
+    backgroundColor: C.white,
+    lineHeight: 1.65,
   }
 };
 
-const styles = {
-  container: {
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 32px',
-    width: '100%',
+const s = {
+  container: { maxWidth:'1280px', margin:'0 auto', padding:'0 40px', width:'100%' },
+
+  /* Hero */
+  hero:        { position:'relative', minHeight:'92vh', display:'flex', alignItems:'center', color:'white', overflow:'hidden', backgroundColor: C.slate },
+  heroVid:     { position:'absolute', top:'50%', left:'50%', minWidth:'100%', minHeight:'100%', width:'auto', height:'auto', transform:'translate(-50%,-50%)', objectFit:'cover', zIndex:1 },
+  heroOverlay: { 
+    position: 'absolute', 
+    inset: 0, 
+    background: 'linear-gradient(105deg, rgba(0, 129, 143, 0.24) 0%, rgba(30, 34, 35, 0.85) 45%, rgba(0, 40, 50, 0.7) 100%)', 
+    zIndex: 2 
   },
-  hero: {
-    position: 'relative',
-    height: '75vh',
-    minHeight: '550px',
-    display: 'flex',
-    alignItems: 'center',
-    color: 'white',
-    overflow: 'hidden',
-    backgroundColor: '#1E2223',
-  },
-  heroVideo: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    minWidth: '100%',
-    minHeight: '100%',
-    width: 'auto',
-    height: 'auto',
-    transform: 'translate(-50%, -50%)',
-    objectFit: 'cover',
-    zIndex: 1,
-  },
-  heroOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(90deg, rgba(15,18,19,0.9) 0%, rgba(15,18,19,0.6) 60%, rgba(0,0,0,0.3) 100%)',
-    zIndex: 2,
-  },
-  heroContent: {
-    maxWidth: '720px',
-    position: 'relative',
-    zIndex: 3,
-  },
-  heroSlogan: {
-    fontSize: '0.85rem',
-    letterSpacing: '2px',
-    fontWeight: 700,
-    textTransform: 'uppercase',
-    background: 'rgba(0, 129, 143, 0.9)',
-    display: 'inline-flex',
-    alignItems: 'center',
-    padding: '6px 18px',
-    borderRadius: '40px',
-    marginBottom: '24px',
-  },
-  heroHeading: {
-    fontSize: '3.5rem',
-    fontWeight: 800,
-    lineHeight: 1.15,
-    marginBottom: '20px',
-  },
-  heroText: {
-    fontSize: '1.15rem',
-    marginBottom: '36px',
-    opacity: 0.9,
-  },
-  heroButtons: {
-    display: 'flex',
-    gap: '16px',
-    flexWrap: 'wrap',
-  },
-  btnPrimary: {
-    backgroundColor: '#00818F',
-    color: 'white',
-    padding: '14px 32px',
-    borderRadius: '40px',
-    textDecoration: 'none',
-    fontWeight: 600,
-    display: 'inline-flex',
-    alignItems: 'center',
-    boxShadow: '0 4px 12px rgba(0,129,143,0.25)',
-  },
-  btnOutlineLight: {
-    backgroundColor: 'transparent',
-    border: '2px solid white',
-    color: 'white',
-    padding: '12px 30px',
-    borderRadius: '40px',
-    textDecoration: 'none',
-    fontWeight: 600,
-    display: 'inline-flex',
-    alignItems: 'center',
-  },
-  section: {
-    padding: '100px 0',
-  },
-  sectionHeader: {
-    marginBottom: '60px',
-    textAlign: 'center',
-  },
-  sectionTag: {
-    color: '#6E1D14',
-    textTransform: 'uppercase',
-    fontSize: '0.85rem',
-    fontWeight: 700,
-    letterSpacing: '2px',
-    display: 'block',
-    marginBottom: '8px',
-  },
-  sectionTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 800,
-    marginBottom: '16px',
-    color: '#1E2223',
-  },
-  sectionSub: {
-    color: '#64748B',
-    maxWidth: '640px',
-    margin: '0 auto',
-    fontSize: '1.1rem',
-  },
-  gridTwo: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '40px',
-  },
-  mvCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: '24px',
-    padding: '48px 40px',
-    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
-    border: '1px solid rgba(0, 129, 143, 0.08)',
-    position: 'relative',
-    overflow: 'hidden',
-  },
-  mvIcon: {
-    fontSize: '2.2rem',
-    color: '#6E1D14',
-    marginBottom: '24px',
-  },
-  cardHeading: {
-    fontSize: '1.75rem',
-    fontWeight: 700,
-    marginBottom: '16px',
-    color: '#1E2223',
-  },
-  cardText: {
-    color: '#475569',
-    fontSize: '1.05rem',
-  },
-  gridFour: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-    gap: '24px',
-  },
-  diffCard: {
-    backgroundColor: '#FFFFFF',
-    padding: '32px 28px',
-    borderRadius: '20px',
-    border: '1px solid rgba(0, 129, 143, 0.08)',
-    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
-  },
-  gridFourCardOverride: {
-    backgroundColor: '#FFFFFF',
-    padding: '32px 28px',
-    borderRadius: '20px',
-    border: '1px solid rgba(0, 129, 143, 0.08)',
-    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
-  },
-  diffIcon: {
-    width: '48px',
-    height: '48px',
-    backgroundColor: 'rgba(110, 29, 20, 0.08)',
-    color: '#6E1D14',
-    borderRadius: '12px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '1.35rem',
-    marginBottom: '20px',
-  },
-  smallCardHeading: {
-    fontSize: '1.2rem',
-    fontWeight: 700,
-    color: '#1E2223',
-    marginBottom: '10px',
-  },
-  diffText: {
-    fontSize: '0.92rem',
-    color: '#64748B',
-    lineHeight: 1.5,
-  },
-  gridThree: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '32px',
-  },
-  solutionCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: '30px', 
-    padding: '45px 35px',
-    position: 'relative',
-    overflow: 'hidden',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12), 0 4px 15px -3px rgba(0, 129, 143, 0.06)',
-    border: '1px solid rgba(0, 129, 143, 0.08)',
-    borderBottom: '5px solid #00818F', 
-  },
-  solutionCardHeading: {
-    fontSize: '1.65rem',
-    fontWeight: 700,
-    marginBottom: '16px',
-    color: '#1E2223',
-  },
-  solutionDesc: {
-    color: '#64748B',
-    fontSize: '0.98rem',
-    marginBottom: '28px',
-    minHeight: '48px',
-  },
-  featureList: {
-    listStyle: 'none',
-    marginBottom: '36px',
-    padding: 0,
-  },
-  featureItem: {
-    marginBottom: '16px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '14px',
-    fontSize: '0.95rem',
-    color: '#475569',
-  },
-  featureIcon: {
-    color: '#00818F', // Swapped out burgundy icons for brand-aligned teal to match reference blueprint
-    width: '18px',
-    fontSize: '1.05rem',
-  },
-  learnMore: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '2px solid #00818F',
-    color: '#00818F',
-    padding: '11px 26px',
-    borderRadius: '40px',
-    fontWeight: 600,
-    textDecoration: 'none',
-    width: 'fit-content',
-    fontSize: '0.9rem',
-  },
-  btnJoin: {
-    backgroundColor: '#00818F',
-    color: 'white',
-  },
-  teamSliderContainer: {
-    width: '100%',
-    overflow: 'hidden',
-    position: 'relative',
-    padding: '20px 0',
-  },
-  teamMember: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: '20px',
-    padding: '32px 24px',
-    textAlign: 'center',
-    boxShadow: '0 10px 35px -5px rgba(0, 129, 143, 0.12)', // Aligned to share matching blueprint parameters
-    border: '1px solid rgba(0, 129, 143, 0.04)',
-    width: '280px',
-    flexShrink: 0,
-  },
-  teamAvatar: {
-    width: '100px',
-    height: '100px',
-    margin: '0 auto 16px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    border: '3px solid #FFF2E8',
-    overflow: 'hidden',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-    backgroundColor: '#F1F5F9'
-  },
-  teamAvatarImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    display: 'block'
-  },
-  teamName: {
-    fontSize: '1.15rem',
-    fontWeight: 700,
-    color: '#1E2223',
-    marginBottom: '4px',
-  },
-  teamRole: {
-    color: '#00818F',
-    fontWeight: 600,
-    fontSize: '0.85rem',
-    textTransform: 'uppercase',
-    letterSpacing: '0.5px',
-  }
+  heroContent: { maxWidth:'680px', position:'relative', zIndex:3, padding:'80px 0 60px' },
+  heroBadge:   { fontSize:'0.72rem', letterSpacing:'2px', fontWeight:700, textTransform:'uppercase', background:'rgba(4, 60, 66, 0.18)', border:'1px solid rgba(0,129,143,0.4)', backdropFilter:'blur(8px)', display:'inline-flex', alignItems:'center', padding:'6px 18px', borderRadius:'40px', marginBottom:'24px', color:'#5ecfd9' },
+  heroH1:      { fontSize:'clamp(2.4rem, 4.5vw, 3.6rem)', fontWeight:800, lineHeight:1.1, marginBottom:'18px', color:'#fff' },
+  heroSub:     { fontSize:'1.05rem', marginBottom:'32px', opacity:0.82, lineHeight:1.75, maxWidth:'540px' },
+  heroBtns:    { display:'flex', gap:'12px', flexWrap:'wrap', marginBottom:'44px' },
+  btnCyan:     { background: C.cyan, color:'white', padding:'12px 28px', borderRadius:'40px', textDecoration:'none', fontWeight:700, fontSize:'0.9rem', display:'inline-flex', alignItems:'center', boxShadow:'0 6px 20px rgba(0,129,143,0.35)' },
+  btnOutline:  { background:'transparent', border:'2px solid rgba(255,255,255,0.5)', color:'white', padding:'10px 26px', borderRadius:'40px', textDecoration:'none', fontWeight:700, fontSize:'0.9rem', display:'inline-flex', alignItems:'center' },
+
+  /* Section base */
+  section:  { padding:'96px 0' },
+  secHead:  { textAlign:'center', marginBottom:'52px' },
+  secSub:   { color: C.slateLight, maxWidth:'580px', margin:'0 auto', fontSize:'1rem', lineHeight:1.72 },
+  eyebrow:  { display:'block', fontSize:'0.72rem', letterSpacing:'2.5px', fontWeight:700, textTransform:'uppercase', color: C.burgundy, marginBottom:'10px' },
+  h2:       { fontSize:'clamp(1.9rem, 3vw, 2.5rem)', fontWeight:800, color: C.slate, lineHeight:1.18, marginBottom:'12px' },
+  bodyText: { fontSize:'0.97rem', color:'#475569', lineHeight:1.75 },
+
+  /* Story Layout Split */
+  storyGrid:     { display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(450px, 1fr))', gap:'60px', alignItems:'center', marginBottom: '60px' },
+  storyLeft:     { display:'flex', flexDirection:'column' },
+  quote:         { borderLeft:`3px solid #788B7C`, paddingLeft:'18px', margin:'24px 0 0', fontStyle:'italic', fontSize:'1rem', color: C.slate, lineHeight:1.65 },
+  storyImageWrap:{ position: 'relative', borderRadius: '20px', overflow: 'hidden', height: '400px', boxShadow: '0 20px 40px -15px rgba(0,0,0,0.1)', display: 'block', width: '100%' },
+  storyImage:    { width: '100%', height: '100%', objectFit: 'cover', display: 'block' },
+  storyImageOverlay: { position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.15), rgba(248,250,252,0))' },
+
+  /* Mission & Vision Row Layout */
+  mvCardsRow:   { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '30px', marginTop: '20px' },
+  mvCard:       { background: C.white, borderRadius:'16px', padding:'24px 22px', boxShadow: C.shadowSm, border:`1px solid ${C.border}`, overflow:'hidden', position:'relative' },
+  mvCardBar:    { position:'absolute', top:0, left:0, right:0, height:'3px', background: C.burgundy },
+  mvCardInner:  { display:'flex', gap:'16px', alignItems:'flex-start' },
+  mvNumWrap:    { width:'36px', height:'36px', borderRadius:'10px', background:'rgba(110,29,20,0.08)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 },
+  mvNum:        { fontSize:'0.85rem', fontWeight:800, color: C.burgundy },
+  mvTitle:      { fontSize:'1.05rem', fontWeight:700, color: C.slate, marginBottom:'6px' },
+  mvText:       { fontSize:'0.88rem', color:'#475569', lineHeight:1.65 },
+
+  /* Ecosystem Layout Styling Adjustments */
+  ecoGrid:        { display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:'20px' },
+  ecoCard:        { background: C.white, borderRadius:'16px', padding:'28px 24px', border:`1px solid ${C.border}`, boxShadow: C.shadowSm, position:'relative', display:'flex', flexDirection:'column' },
+  ecoTopRow:      { display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'20px' },
+  ecoLabel:       { fontSize:'0.65rem', fontWeight:700, letterSpacing:'0.8px', textTransform:'uppercase', padding:'4px 12px', borderRadius:'999px', border:'1px solid' },
+  
+  // Increased width/height from 46px to 56px for a cleaner balance
+  ecoCircleBadge: { width:'56px', height:'56px', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, overflow:'hidden', position:'relative', backgroundColor:'#FFFFFF', boxShadow:'0 2px 10px rgba(0,0,0,0.06)', border:'1px solid rgba(0,0,0,0.04)' },
+  
+  // Scaled up image layout containment context
+  ecoBadgeImg:    { width:'90%', height:'90%', objectFit:'contain', display:'block', position:'relative', zIndex:2 },
+  ecoBadgeIconFallback: { position:'absolute', inset:0, display:'none', alignItems:'center', justifyContent:'center', zIndex:1 },
+  ecoName:        { fontSize:'1.1rem', fontWeight:700, color: C.slate, marginBottom:'4px', lineHeight:1.25 },
+  ecoTagline:     { fontSize:'0.78rem', color: C.slateLight, marginBottom:'12px', fontWeight:500 },
+  ecoDesc:        { fontSize:'0.85rem', color:'#475569', lineHeight:1.6, marginBottom:'16px' },
+  ecoList:        { listStyle:'none', padding:0, margin:'0 0 24px', display:'flex', flexDirection:'column', gap:'8px' },
+  ecoListItem:    { display:'flex', alignItems:'center', gap:'8px', fontSize:'0.82rem', color:'#475569' },
+  ecoCheck:       { fontSize:'0.72rem', flexShrink:0 },
+  ecoCta:         { display:'inline-flex', alignItems:'center', margin:'auto 0 0', border:'1.5px solid', padding:'8px 20px', borderRadius:'40px', fontWeight:600, fontSize:'0.8rem', textDecoration:'none', width:'fit-content' },
+
+  /* Values */
+  valGrid:    { display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'20px', marginBottom:'24px' },
+  valCard:    { background: C.white, borderRadius:'18px', padding:'28px 26px', boxShadow: C.shadowSm, border:`1px solid ${C.border}` },
+  valIconRow: { display:'flex', alignItems:'center', gap:'14px', marginBottom:'14px' },
+  valIconBox: { width:'42px', height:'42px', borderRadius:'12px', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 },
+  valTitle:   { fontSize:'1.15rem', fontWeight:700 },
+  valText:    { fontSize:'0.88rem', color: C.slateLight, lineHeight:1.7 },
+  wayStrip:   { background: C.white, border:`1px solid ${C.border}`, borderRadius:'14px', padding:'16px 24px', display:'flex', alignItems:'center', gap:'16px', flexWrap:'wrap', boxShadow:'0 4px 14px rgba(110,29,20,0.05)' },
+  wayLabel:   { fontSize:'0.75rem', fontWeight:700, color: C.burgundy, textTransform:'uppercase', letterSpacing:'1.5px', flexShrink:0, whiteSpace:'nowrap' },
+  wayPills:   { display:'flex', flexWrap:'wrap', gap:'7px' },
+  wayPill:    { fontSize:'0.78rem', padding:'4px 12px', borderRadius:'999px', background:'rgba(110,29,20,0.06)', color: C.burgundy, border:'1px solid rgba(110,29,20,0.14)', fontWeight:500 },
+
+  /* Team */
+  teamSlider: { width:'100%', overflow:'hidden', padding:'8px 0 16px' },
+  teamCard:   { background: C.white, borderRadius:'18px', padding:'26px 20px', textAlign:'center', boxShadow: C.shadowSm, border:`1px solid ${C.border}`, width:'210px', flexShrink:0 },
+  teamAvatar: { width:'84px', height:'84px', margin:'0 auto 14px', borderRadius:'50%', position:'relative', border:`2.5px solid rgba(110,29,20,0.14)`, overflow:'hidden', background:'#F1F5F9', display:'flex', alignItems:'center', justifyContent:'center' },
+  teamImg:    { width:'100%', height:'100%', objectFit:'cover', display:'block' },
+  teamFallback:{ display:'none', width:'100%', height:'100%', alignItems:'center', justifyContent:'center', background:`linear-gradient(135deg, ${C.burgundy}, #8B2A1F)` },
+  teamName:   { fontSize:'0.92rem', fontWeight:700, color: C.slate, marginBottom:'3px' },
+  teamRole:   { fontSize:'0.72rem', color: C.burgundy, fontWeight:600, textTransform:'uppercase', letterSpacing:'0.4px', lineHeight:1.4 },
 };
 
 export default HomePage;

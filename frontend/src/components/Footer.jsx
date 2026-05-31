@@ -96,7 +96,7 @@ const Footer = () => {
               </p>
               <p style={styles.contactText}>
                 <i className="fas fa-phone-alt" aria-hidden="true" style={styles.contactIcon}></i> 
-                <a href="tel:+27114635540" style={styles.contactLink}>++27 11 463 5540</a>
+                <a href="tel:+27114635540" style={styles.contactLink}>+27 11 463 5540</a>
               </p>
               <p style={styles.contactText}>
                 <i className="fas fa-map-marker-alt" aria-hidden="true" style={styles.contactIcon}></i>
