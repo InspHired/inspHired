@@ -77,9 +77,15 @@ const ContactPage = () => {
             </p>
 
             <div style={styles.ctaRow}>
-              <a href="#" style={styles.primaryBtn}>
-                Request Call Back
-              </a>
+               <a
+  href='/callback'
+  target="_blank"
+  rel="noopener noreferrer"
+  style={styles.primaryBtn}
+  className="btn-hover"
+>
+  Request Callback
+</a>
               <a href="#offices" style={styles.secondaryBtn}>
                 View Offices
               </a>

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+
 const recruitmentSteps = [
   {
     number: '01',
@@ -104,6 +105,19 @@ const EmployersPage = () => {
           }
         }
 
+        @media (max-width: 992px) {
+  .hero-device {
+    width: 60% !important;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-device {
+    display: none;
+  }
+}
+
         .fade-up {
           animation: fadeUp 0.8s ease forwards;
         }
@@ -144,47 +158,67 @@ const EmployersPage = () => {
 
       {/* HERO SECTION */}
       <header style={styles.hero}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={styles.heroVideo}
-        >
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-business-team-working-in-modern-office-43770-large.mp4"
-            type="video/mp4"
-          />
-        </video>
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={styles.heroVideo}
+  >
+    <source
+      src="https://assets.mixkit.co/videos/preview/mixkit-business-team-working-in-modern-office-43770-large.mp4"
+      type="video/mp4"
+    />
+  </video>
 
-        <div style={styles.heroOverlay}></div>
+  <div style={styles.heroOverlay}></div>
 
-        <div style={styles.container}>
-          <div style={styles.heroContent} className="fade-up">
-            <span style={styles.heroTag}>
-              FOR EMPLOYERS
-            </span>
+  <img
+  src="/public/assets/worx-hero.png"
+  alt="InspHired Platform"
+  className="hero-device"
+  style={styles.heroDeviceImage}
+/>
 
-            <h1 style={styles.heroTitle} className="hero-title">
-              Strategic Recruitment Solutions For Modern African Businesses
-            </h1>
+  <div style={styles.container}>
+    <div style={styles.heroContent} className="fade-up">
+      <span style={styles.heroTag}>
+        FOR EMPLOYERS
+      </span>
 
-            <p style={styles.heroText}>
-              Our comprehensive recruitment services are designed to connect your organisation with top-tier professionals who align with your culture, vision, and long-term business goals.
-            </p>
+      <h1 style={styles.heroTitle} className="hero-title">
+        Strategic Recruitment Solutions For Modern African Businesses
+      </h1>
 
-            <div style={styles.heroButtons} className="hero-buttons">
-              <a href="#" style={styles.primaryBtn} className="btn-hover">
-                Schedule Consultation
-              </a>
+      <p style={styles.heroText}>
+        Our comprehensive recruitment services are designed to connect your organisation with top-tier professionals who align with your culture, vision, and long-term business goals.
+      </p>
 
-              <a href="#" style={styles.secondaryBtn} className="btn-hover">
-                Request Callback
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+      <div style={styles.heroButtons} className="hero-buttons">
+        <a
+  href="https://bookings.cloud.microsoft/book/LandrysDiary@insphired.co.za/?ismsaljsauthenabled=true"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={styles.primaryBtn}
+  className="btn-hover"
+>
+  Schedule Consultation
+</a>
+
+  <a
+  href='/callback'
+  target="_blank"
+  rel="noopener noreferrer"
+  style={styles.primaryBtn}
+  className="btn-hover"
+>
+  Request Callback
+</a>
+
+      </div>
+    </div>
+  </div>
+</header>
 
       {/* RECRUITMENT PROCESS */}
       <section style={styles.section}>
@@ -336,23 +370,45 @@ const EmployersPage = () => {
               How Can We InspHire You Today?
             </h2>
 
-            <p style={styles.ctaText}>
-              Let’s discuss your business needs and build a workforce designed for growth.
-            </p>
+        <p style={styles.ctaText}>
+          Let’s discuss your business needs and build a workforce designed for growth.
+        </p>
 
-            <div style={styles.heroButtons} className="hero-buttons">
-              <a href="#" style={styles.primaryBtn} className="btn-hover">
-                Schedule Consultation
-              </a>
+        <div style={styles.heroButtons} className="hero-buttons">
+          <a
+            href="https://bookings.cloud.microsoft/book/LandrysDiary@insphired.co.za/?ismsaljsauthenabled=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.primaryBtn}
+            className="btn-hover"
+          >
+            Schedule Consultation
+          </a>
 
-              <a href="#" style={styles.secondaryBtnDark} className="btn-hover">
-                Request Callback
-              </a>
-            </div>
-          </div>
+          <a
+            href= '/callback'
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.primaryBtn}
+            className="btn-hover"
+          >
+            Request Callback
+          </a>
+
+          <a
+            href="https://worx.insphired.jobs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.primaryBtn}
+            className="btn-hover"
+          >
+            WORX(Temp Hiring Platform)
+          </a>
+
         </div>
-      </section>
-
+        </div>
+    </div>
+  </section>
       <Footer />
     </div>
   );
@@ -365,10 +421,12 @@ const styles = {
     color: '#334155'
   },
 
-  container: {
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 32px'
+ container: {
+  maxWidth: '1280px',
+  margin: '0 auto',
+  padding: '0 32px',
+  position: 'relative',
+  zIndex: 3
   },
 
   hero: {
@@ -394,6 +452,17 @@ const styles = {
     inset: 0,
     background: 'linear-gradient(90deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.65) 100%)'
   },
+
+  heroDeviceImage: {
+  position: 'absolute',
+  right: '2%',
+  bottom: '0',
+  width: '48%',
+  maxWidth: '750px',
+  zIndex: 2,
+  pointerEvents: 'none',
+  opacity: 0.95,
+},
 
   heroContent: {
     position: 'relative',

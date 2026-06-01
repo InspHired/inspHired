@@ -71,6 +71,21 @@ const AboutPage = () => {
 
       {/* HERO */}
       <header style={styles.hero}>
+
+         <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={styles.heroVideo}
+  >
+    <source
+      src="https://assets.mixkit.co/videos/preview/mixkit-business-team-working-in-modern-office-43770-large.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+
         <div style={styles.heroOverlay}></div>
 
         <div style={styles.container}>
@@ -189,10 +204,13 @@ const styles = {
     color: '#0F172A'
   },
 
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 24px'
+
+ container: {
+  maxWidth: '1280px',
+  margin: '0 auto',
+  padding: '0 32px',
+  position: 'relative',
+  zIndex: 3
   },
 
   hero: {

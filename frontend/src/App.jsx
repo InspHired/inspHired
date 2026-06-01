@@ -11,6 +11,7 @@ import WorxPage from './pages/WorxPage';
 import VerifyMePage from './pages/VerifyMePage';
 import ConnectPage from './pages/ConnectPage';
 import JobotPage from './pages/JobotPage';
+import CallbackPage from './pages/CallBackPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/worx' element={<WorxPage/>} />
         <Route path='/connect' element={<ConnectPage/>} />
         <Route path='/verify-me' element={<VerifyMePage/>} />
+        <Route path="/callback" element={<CallbackPage />} />
         
 
       </Routes>
