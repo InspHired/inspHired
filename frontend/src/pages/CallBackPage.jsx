@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { supabase } from '/src/lib/supabase';
 
 const CallbackPage = () => {
-  const [formData, setFormData] = useState({
+  const [loading, setLoading] = useState(false);
+
+const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
@@ -21,12 +24,50 @@ const CallbackPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    setLoading(true);
+    try {
+      const { error } = await supabase
+        .from('callback_requests')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            position: formData.position,
+            service: formData.service,
+            callback_time: formData.callbackTime,
+            message: formData.message
+          }
+        ]);
 
-    alert('Thank you! Our team will contact you shortly.');
+      if (error) {
+        console.error(error);
+        alert('Failed to submit request.');
+        return;
+      }
+
+      alert('Thank you! Our team will contact you shortly.');
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        position: '',
+        service: '',
+        callbackTime: '',
+        message: ''
+      });
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -151,12 +192,13 @@ const CallbackPage = () => {
                   style={styles.textarea}
                 />
 
-                <button
-                  type="submit"
-                  style={styles.primaryBtn}
-                >
-                  Request Callback
-                </button>
+               <button
+  type="submit"
+  disabled={loading}
+  style={styles.primaryBtn}
+>
+  {loading ? 'Submitting...' : 'Request Callback'}
+</button>
               </form>
             </div>
 
