@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsappButton';
 
 const offices = [
   {
@@ -191,6 +192,14 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
+      {/* WhatsApp Block Option */}
+        <div style={{ background: '#FFFFFF', padding: '32px', borderRadius: '16px', boxShadow: '0 6px 24px rgba(0,0,0,0.04)', border: '1px solid rgba(110,29,20,0.08)', marginBottom: '40px' }}>
+          <h4 style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: '1.1rem' }}>Instant Support</h4>
+          <p style={{ color: '#64748B', fontSize: '0.9rem', marginBottom: '20px' }}>Skip the email queues and chat to a consultant right now.</p>
+          
+          <WhatsAppButton />
+        </div>
 
       <Footer />
     </div>

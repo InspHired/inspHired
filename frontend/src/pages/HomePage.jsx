@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsappButton';
+import ConsentModal from '../components/ConsentModal';
 
 const leadershipTeam = [
   { name: 'Landry Mutombo',       role: 'Chief Executive',                     img: '/assets/InspHiredTeam/Mr L.png'   },
@@ -342,6 +344,21 @@ const HomePage = () => {
         <p style={{textAlign:'center', marginTop:'32px', fontSize:'0.9rem', color: C.slateLight, padding:'0 32px'}}>
           Backed by a full team of candidate managers, recruitment researchers, account managers, and operations specialists — all on the InspHired bus.
         </p>
+      </section>
+
+      {/* ── WHATSAPP CALL TO ACTION SECTION ── */}
+      <section style={{ padding: '60px 0', background: '#F8FAFC', textAlign: 'center', borderTop: `1px solid ${C.border}` }}>
+        <div style={s.container}>
+          <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: C.slate, marginBottom: '8px' }}>
+            Ready to Connect?
+          </h3>
+          <p style={{ color: C.slateLight, maxWidth: '500px', margin: '0 auto 24px', fontSize: '0.95rem' }}>
+            Have urgent hiring needs or career questions? Message our advisory team directly on WhatsApp for immediate support.
+          </p>
+          
+          {/* Drop the standard button right here */}
+          <WhatsAppButton />
+        </div>
       </section>
 
       <Footer />

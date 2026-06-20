@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ConsentModal from './ConsentModal';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -86,7 +87,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* NEW: Explicitly Configured Contact & Social Columns */}
+          {/* Contact & Social Columns */}
           <div style={styles.footerContactSection}>
             <h4 style={styles.footerHeading}>Contact Us</h4>
             <div style={styles.contactContainer}>
@@ -126,9 +127,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright Base Bar */}
+        {/* Copyright Base Bar with Preferences Component Integration */}
         <div style={styles.copyright}>
-          &copy; {currentYear} InspHired — Africa's Recruitment Partner. All rights reserved. | Empowering the African workforce.
+          <div style={styles.copyrightText}>
+            &copy; {currentYear} InspHired — Africa's Recruitment Partner. All rights reserved. | Empowering the African workforce.
+          </div>
+          <div style={styles.consentWrapper}>
+            <ConsentModal />
+          </div>
         </div>
       </div>
     </footer>
@@ -137,7 +143,7 @@ const Footer = () => {
 
 const styles = {
   footer: {
-    backgroundColor: '#6E1D14', // Synchronized Deep Burgundy Background
+    backgroundColor: '#6E1D14', 
     color: '#F8FAFC',
     padding: '80px 0 40px',
     fontSize: '0.95rem',
@@ -150,7 +156,7 @@ const styles = {
   },
   footerGrid: {
     display: 'grid',
-    gridTemplateColumns: '2fr repeat(2, 1fr) 1.25fr', // Balanced layout columns
+    gridTemplateColumns: '2fr repeat(2, 1fr) 1.25fr', 
     gap: '48px',
     marginBottom: '64px',
   },
@@ -170,7 +176,7 @@ const styles = {
     width: 'auto',
     objectFit: 'contain',
     display: 'block',
-    backgroundColor: 'rgba(255,255,255,0.95)', // Subtle backdrop shielding contrast against burgundy
+    backgroundColor: 'rgba(255,255,255,0.95)', 
     padding: '6px 12px',
     borderRadius: '8px'
   },
@@ -251,12 +257,21 @@ const styles = {
     textDecoration: 'none',
   },
   copyright: {
-    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '16px',
     borderTop: '1px solid rgba(255,255,255,0.12)',
     paddingTop: '40px',
     fontSize: '0.85rem',
     color: '#E2E8F0',
+  },
+  copyrightText: {
     opacity: 0.7,
+    textAlign: 'center'
+  },
+  consentWrapper: {
+    marginTop: '4px'
   }
 };
 
